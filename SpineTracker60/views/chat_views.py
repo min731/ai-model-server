@@ -22,14 +22,49 @@ chatbot = ChatBot()
 # 2) 스트레칭 질문 -> (chatGPT)
 # 3) 상품 추천 -> (chatGPT) *chatGPT 의도 분류 + (ML) 추천 상품 추론
 # 4) 기타 -> (chatGPT)
-@bp.route('/answer',methods=['POST'])
-def generate_answer():
 
-    answer = ''
+# 답변 
+@bp.route('/answer',methods=['POST'])
+def gen_ans():
     
     try:
-        user_request = request.form
-        user_input = user_request['question']
+
+        input_json = request.json
+        
+        id = input_json['id']
+        age = input_json['age']
+        gender = input_json['gender']
+        job = input_json['job']
+
+        turtle_neck = input_json['turtle_neck']
+        sleepiness = input_json['sleepiness']
+        stooped_position = input_json['stooped_position']
+
+        question = input_json['question']
+
+        print("질문 : ",question)
+        answer = chatbot.get_answer(question)
+
+        if '추천' in answer:
+            answer += (" 상품 분류 : " + chatbot.okt.nouns(answer)[-2])
+            answer += ("\n 거북목 : ",turtle_neck+", 졸음 : ",sleepiness,", 비대칭 자세 :",stooped_position)
+
+        print("답변 : ",answer)
+
+    except Exception as e:
+        print("예외 발생!!! ",str(e))
+        answer = str(e)
+
+    return answer
+
+
+# 답변 테스트
+@bp.route('/answer_test',methods=['POST'])
+def gen_ans_test():
+    
+    try:
+        input_form = request.form
+        user_input = input_form['question']
         
         print("질문 : ",user_input)
         answer = chatbot.get_answer(user_input)

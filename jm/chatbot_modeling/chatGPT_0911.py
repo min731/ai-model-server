@@ -24,11 +24,11 @@ class ChatBot():
     def get_model(self) -> ChatOpenAI:
         
         # resource 폴더 안의 API 키 (.gitignore 설정)
-        root = Path.cwd()
-        key_dir = str(root) + '/SpineTracker60/resource'
+        # root = Path.cwd()
+        # key_dir = str(root) + '/SpineTracker60/resource'
         # print("key_dir :",key_dir)
 
-        with open(key_dir+'/secret.json', 'r') as json_file:
+        with open('resource/secret.json', 'r') as json_file:
             secret_json = json.load(json_file)
             
         openai_api_key = secret_json["OPENAI_API_KEY"]
@@ -73,7 +73,7 @@ class ChatBot():
                 세번째로 "척추(모형)은 몇분마다 생성되나요?"야. 이때는 척추(모형)이 30분마다 1개씩 생성되며 마이페이지를 통해 일간,주간,월간 통계를 확인할 수 있다고 하면돼.
                 네번째로 "화장실 가려는데 정지할 수 있나요?"야. 이때는 서비스 이용 중에 자리를 잠시 이탈해야하는 볼일이 있다면 화면 좌측 상단의 일시정지 버튼을 눌러 자세 감지를 잠깐동안 중지할 수 있다고 하면돼.
 
-                질문에 대해 답변할 때는 이모티콘을 많이 활용해서 장난기 많은 친구 말투로 말해주면 좋겠어. 가끔은 농담 섞인 답변으로 해도 좋아.
+                질문에 대해 답변할 때는 이모티콘을 많이 활용해서 귀엽고 깜찍한 말투로 말해주면 좋겠어. 가끔은 농담 섞인 답변으로 해도 좋아.
                 너의 이름은 한국의 대표적인 성씨인 '김'씨와 스켈레톤의 '레톤'을 결합한 '김레톤'이야. 
 
                 모든 답변은 20자 이내로 대답해줘.
