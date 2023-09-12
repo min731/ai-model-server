@@ -42,12 +42,11 @@ def gen_ans():
 
         question = input_json['question']
 
-        print("질문 : ",question)
         answer = chatbot.get_answer(question)
 
         if '추천' in answer:
-            answer += (" 상품 분류 : " + chatbot.okt.nouns(answer)[-2])
-            answer += ("\n 거북목 : ",turtle_neck+", 졸음 : ",sleepiness,", 비대칭 자세 :",stooped_position)
+            answer += " 상품 분류 : " + chatbot.okt.nouns(answer)[-2]
+            answer += " (거북목 : " + str(turtle_neck) + " / 졸음 : " + str(sleepiness) + " / 비대칭 자세 :" + str(stooped_position) +")"
 
         print("답변 : ",answer)
 
