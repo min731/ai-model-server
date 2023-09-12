@@ -9,12 +9,13 @@ import json
 #     "job" : 7,
 #     "turtle_neck" : 0.2,
 #     "sleepiness" : 0.5,
-#     "tooped_position" : 0.7
+#     "tooped_position" : 0.7,
+#     "question" : '이거 무슨 프로그램이야'
 # }
 
 # # JSON 파일로 데이터 저장
-# with open("data/tmp_user.json", "w") as json_file:
-#     json.dump(data, json_file, indent=7)
+# with open("tmp_user.json", "w", encoding="utf-8") as json_file:
+#     json.dump(data, json_file, ensure_ascii=False,indent=7)
 
 def create_app():
     app = Flask(__name__)
