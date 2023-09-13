@@ -8,6 +8,7 @@ import time
 from pathlib import Path
 import json
 from konlpy.tag import Okt
+import asyncio
 
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
@@ -83,61 +84,78 @@ class ChatBot():
 
 
 # 테스트 Main 함수        
+chat_history = []  # 대화 기록을 저장할 리스트
+
+async def respond(message):
+    # ChatGPT 질의
+    bot_message = chatbot.get_answer(message)
+    # 답변 기록
+    chat_history.append((message, bot_message))
+    
+        # 현재 시간을 얻습니다.
+    current_time = time.time()
+
+    # 현재 시간을 년, 월, 일, 시, 분, 초로 분해
+    current_time_tuple = time.localtime(current_time)
+
+    # 년, 월, 일, 시, 분, 초를 추출
+    year = current_time_tuple.tm_year
+    month = current_time_tuple.tm_mon
+    day = current_time_tuple.tm_mday
+    hour = current_time_tuple.tm_hour
+    minute = current_time_tuple.tm_min
+    second = current_time_tuple.tm_sec
+
+    # 년, 월, 일, 시, 분, 초를 원하는 형식으로 조합
+    formatted_time = f"{year:04d}{month:02d}{day:02d}{hour:02d}{minute:02d}{second:02d}"
+
+    newData = {'Time': formatted_time,
+                'Q': message,
+                'A': bot_message}
+    
+    with open('data/chatbot_gradio/chat_test_db.csv', mode='a', newline='',encoding='utf-8') as csv_file:
+        fieldnames = ['Time', 'Q', 'A']  # CSV 파일의 열 이름을 나열합니다.
+        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+
+        # 파일에 헤더를 추가하려면 아래 두 줄의 주석을 제거하세요.
+        # if csv_file.tell() == 0:
+        #     writer.writeheader()
+
+        # 데이터 추가
+        writer.writerow(newData)
+
+    return "", chat_history
+
 if __name__ == '__main__':
     chatbot = ChatBot()
+    
+    async def chat_app():
+        while True:
+            message = await queue.get()
+            await respond(message)
 
-    with gr.Blocks() as demo:
-        gr_chatbot = gr.Chatbot()
-        msg = gr.Textbox()
-        clear = gr.Button("Clear")
+    queue = asyncio.Queue()
+    
+    def gradio_callback(message, chatbot):
+        asyncio.run_coroutine_threadsafe(queue.put(message), loop=loop)
+        return ""
+    
+    gr_chatbot = gr.Chatbot()
+    msg = gr.Textbox()
+    clear = gr.Button("Clear")
+    
+    msg.submit(gradio_callback, args=(gr_chatbot))
 
-        def respond(message, chat_history):
-            # ChatGPT 질의
-            bot_message = chatbot.get_answer(message)
-            # 답변 기록
-            chat_history.append((message, bot_message))
+    def clear_callback():
+        chat_history.clear()
+    
+    clear.click(clear_callback)
 
-                # 현재 시간을 얻습니다.
-            current_time = time.time()
-
-            # 현재 시간을 년, 월, 일, 시, 분, 초로 분해
-            current_time_tuple = time.localtime(current_time)
-
-            # 년, 월, 일, 시, 분, 초를 추출
-            year = current_time_tuple.tm_year
-            month = current_time_tuple.tm_mon
-            day = current_time_tuple.tm_mday
-            hour = current_time_tuple.tm_hour
-            minute = current_time_tuple.tm_min
-            second = current_time_tuple.tm_sec
-
-            # 년, 월, 일, 시, 분, 초를 원하는 형식으로 조합
-            formatted_time = f"{year:04d}{month:02d}{day:02d}{hour:02d}{minute:02d}{second:02d}"
-
-            newData = {'Time': formatted_time,
-                       'Q': message,
-                       'A': bot_message}
-            
-            with open('data/chatbot_gradio/chat_test_db.csv', mode='a', newline='',encoding='utf-8') as csv_file:
-                fieldnames = ['Time', 'Q', 'A']  # CSV 파일의 열 이름을 나열합니다.
-                writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-
-                # 파일에 헤더를 추가하려면 아래 두 줄의 주석을 제거하세요.
-                # if csv_file.tell() == 0:
-                #     writer.writeheader()
-
-                # 데이터 추가
-                writer.writerow(newData)
-
-            return "", chat_history
-
-        msg.submit(respond, [msg, gr_chatbot], [msg, gr_chatbot])
-        clear.click(lambda: None, None, gr_chatbot, queue=False)
+    loop = asyncio.get_event_loop()
+    loop.create_task(chat_app())
 
     # 로컬(local) 구동시
-    demo.launch(share=True)
-    # demo.launch()
-
+    gr.Interface(fn=None, inputs=[msg, clear], outputs=gr_chatbot, live=True).launch(share=True)
 
 
 
