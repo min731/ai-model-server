@@ -79,6 +79,16 @@ class ChatBot():
         return self.model.predict(input=text)
 
 
+def handle_good_click():
+    print("Good 버튼을 눌렀습니다.")
+    # 여기에서 Good 버튼을 누를 때 수행할 작업을 추가하세요.
+    # 예: 파일에 로그 기록, 데이터베이스 업데이트 등
+
+def handle_bad_click():
+    print("Bad 버튼을 눌렀습니다.")
+    # 여기에서 Bad 버튼을 누를 때 수행할 작업을 추가하세요.
+    # 예: 다른 작업 수행
+
 # 테스트 Main 함수        
 if __name__ == '__main__':
     chatbot = ChatBot()
@@ -86,6 +96,8 @@ if __name__ == '__main__':
     with gr.Blocks() as demo:
         gr_chatbot = gr.Chatbot()
         msg = gr.Textbox()
+        good = gr.Button("Good")
+        bad = gr.Button("Bad")
         clear = gr.Button("Clear")
 
         def respond(message, chat_history):
@@ -97,6 +109,9 @@ if __name__ == '__main__':
 
         msg.submit(respond, [msg, gr_chatbot], [msg, gr_chatbot])
         clear.click(lambda: None, None, gr_chatbot, queue=False)
+        
+        good.click(handle_good_click)
+        bad.click(handle_bad_click)
 
     # 로컬(local) 구동시
     demo.launch(share=True)
