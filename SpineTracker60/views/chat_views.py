@@ -1,4 +1,4 @@
-from flask import Blueprint,request
+from flask import Blueprint,request,jsonify
 import sys
 import os
 
@@ -54,7 +54,9 @@ def gen_ans():
         print("예외 발생!!! ",str(e))
         answer = str(e)
 
-    return answer
+    input_json['answer'] = answer
+    
+    return jsonify(input_json)
 
 
 # 답변 테스트

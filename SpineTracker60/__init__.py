@@ -1,5 +1,7 @@
 from flask import Flask
 import json
+import os
+from dotenv import load_dotenv
 
 # # 테스트용 json 파일 생성
 # data = {
@@ -25,5 +27,10 @@ def create_app():
     app.register_blueprint(chat_views.bp)
     app.register_blueprint(rs_views.bp)
     app.register_blueprint(board_views.bp)
-
+    
     return app
+
+# flask run --host=0.0.0.0 --port=5001
+
+# ngrok 로그 확인
+# http://127.0.0.1:4040
