@@ -40,7 +40,7 @@ class ChatBot():
         # 2) GPT 3.5 Fine-tunning (custom데이터 10개 학습)
         fine_tunning_model = secret_json["FINE_TUNNING_MODEL"]
         
-        chat_model = ChatOpenAI(model=defalut_model, openai_api_key=openai_api_key)
+        chat_model = ChatOpenAI(model=defalut_model, openai_api_key=openai_api_key,temperature=0.5)
         conversation = ConversationChain(
             
             # 프롬프트 템플릿 적용
@@ -52,8 +52,6 @@ class ChatBot():
             memory=ConversationBufferWindowMemory(memory_key='history', ai_prefix="AI Assistant", k=5)
         )
         return conversation
-                #     만약 사용자의 질문이 "목배게 추천해줘" 와 같은 의미라면, "목배게 추천해드리겠습니다!"라고 말해줘. 이와 유사하게 "허리에 좋은 의자좀 알려줘"라고 질문한다면
-                # "의자 추천해드리겠습니다."라고 말해줘. 또 유사하게 "손목에 좋은 마우스 추천해봐"라고 한다면 "마우스 추천해드리겠습니다!"라고 말해줘.
 
     # 프롬프트 템플릿
     def get_prompt(self) -> ChatPromptTemplate:

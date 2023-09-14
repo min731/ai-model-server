@@ -38,7 +38,7 @@ class ChatBot():
         # 2) GPT 3.5 Fine-tunning (custom데이터 10개 학습)
         fine_tunning_model = secret_json["FINE_TUNNING_MODEL"]
         
-        chat_model = ChatOpenAI(model=defalut_model, openai_api_key=openai_api_key)
+        chat_model = ChatOpenAI(model=defalut_model, openai_api_key=openai_api_key,temperature=0.5)
         conversation = ConversationChain(
             
             # 프롬프트 템플릿 적용
