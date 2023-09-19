@@ -11,7 +11,7 @@ project_root = os.path.dirname(current_folder)
 # 프로젝트 루트 디렉토리를 sys.path에 추가합니다.
 sys.path.append(project_root)
 
-from models.chatbot.chatGPT_0910 import ChatBot
+from models.chatbot.chatGPT_0919_2 import ChatBot
 
 # 챗봇 bp
 bp = Blueprint('chat',__name__,url_prefix='/chat')
@@ -108,3 +108,20 @@ def gen_ans_test():
         answer = str(e)
 
     return answer
+
+
+
+{
+    "id" : 1,
+
+    "age" : 27,
+    "gender" : 1,
+    "job" : 7,
+
+    "turtle_neck" : 0.5,
+    "sleepiness" : 0.2,
+    "stooped_position" : 0.9,
+    
+    "question" : "의자 추천점"
+
+}
