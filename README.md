@@ -72,6 +72,58 @@
 
 # 💡 주요 내용
 
+### ✔️ 유사 서비스 'Forest' 어플 구글 플레이스토어 리뷰 LDA 분석
+
+##### 1) 'Forest' 서비스란?
+
+![image](https://github.com/SpineTracker60/ai-model-server/assets/115389344/f42a30d9-27ef-4169-9513-9a1312eb6449)
+
+- 집중 시간을 측정하고 종료 알림해주는 시간 관리 타이머 서비스
+- 집중에 성공하면 유저 자신만의 숲을 가꿀 수 있는 재미요소 가미
+- 본 자세 교정 서비스와 유사한 맥락의 서비스로 벤치마킹 시도
+
+##### 2) Forest 구글 플레이 스토어 리뷰 크롤링
+
+- 총 1240개 리뷰 내용/평점 데이터 수집
+  
+![image](https://github.com/SpineTracker60/ai-model-server/assets/115389344/57b3f01d-a771-408a-bad9-e929375a2125)
+
+##### 3) LDA 활용 토픽 모델링 / 시각화
+
+![image](https://github.com/SpineTracker60/ai-model-server/assets/115389344/893662d3-7afd-43c4-8d00-88fbfafc89e1)
+
+- 토픽 갯수 3종류 (n_component=3) 기준 토픽 분류
+1) Topic #1 : 집중력 향상 / 성취감 / 나무,숲 재미요소
+2) Topic #2 : 결제 문의 / 프리미엄 유저    
+3) Topic #3 : 기능 오류 / 개선점
+
+##### 4) LDA 인사이트 도출
+
+- 긍정적인 반응을 보인 Topic #1 토픽 분석
+
+  ![image](https://github.com/SpineTracker60/ai-model-server/assets/115389344/8905bc78-24ba-4558-8265-f146427b3805)
+
+- 긍정적으로 평가한 리뷰들 중 대부분 집중력 향상과 더불어 나무를 심고 숲을 가꾸는 재미요소에 몰입 / 시너지 효과
+- 이러한 실제 유저 반응들을 토대로 시각적 재미(캐릭터 애니메이션)을 적용한 자세 교정 서비스를 기획/개발에 근거
+
+### ✔️ MediaPipe 활용 자세 감지
+
+##### 1) 요구사항 
+
+- '척추의 요정' 서비스의 기본이 되는 거북목 / 비대칭 자세 / 기대 앉기 / 졸음 감지 모듈 개발
+  
+##### 2) 자세 구분
+
+🔹서비스 사용 시 촬영한 정자세 사진 기준을 통해 비교/구분
+
+![KakaoTalk_20230917_123027747](https://github.com/SpineTracker60/ai-model-server/assets/115389344/206337c1-75bd-440d-a80d-d04ff302321d) ![KakaoTalk_20230917_123027747_01](https://github.com/SpineTracker60/ai-model-server/assets/115389344/f05a305f-af6f-4d1c-a36a-9fb3af762166)
+
+- 거북목 : 정자세 기준 일정 비율 이상 얼굴 크기 확장 시 탐지
+- 비대칭 자세 : 어깨 좌표 기울기 이상치 탐지
+- 기대 앉기 : 정자세 기준 얼굴 크기 일정 비율 이상 감소 시 탐지
+- 졸음 : 눈커플 좌표 y축(위아래 길이) 기준 축소 시 탐지
+
+
 ### ✔️ Object Detection
 
 ##### 1) 데이터 전처리 및 증강(RoboFlow)
