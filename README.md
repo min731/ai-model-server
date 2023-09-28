@@ -165,96 +165,28 @@
 ![ezgif com-resize (1)](https://github.com/SpineTracker60/ai-model-server/assets/115389344/b30e4dff-574c-4efc-853d-da24b1799ab4)![ezgif com-resize (4)](https://github.com/SpineTracker60/ai-model-server/assets/115389344/b75709b1-f208-4f82-bafe-946cd13f2033)
 
 
-##### 2) yolov8(n) 모델 학습/평가 및 추론
+### ✔️ ML PipLine을 활용한 개인화 상품 추천 시스템
 
-- 학습 파라미터 : epochs=2000, patience=50, batch=32, dropout=0.3, imgz=640 x 640, iou=0.7, optimizer='Adam', lr=0.01
-- 평가 지표 : mAP50=0.963 , mAP50-95=0.797 , cls_loss=0.6101 , dfl_loss=1.193 , box_precision=0.948 , box_recall= 0.925
+##### 1) 개요
 
-![image](https://github.com/MTVS-AI/META_Yolo_OCR_ChatGPT_PJT/assets/115389344/9fdf52ae-ac29-458a-8e9c-841cc5871528) 
+- 회원가입 시 입력된 성별 / 나이 / 직업 데이터
+- 서비스 사용에 따라 누적되는 거북목 / 비대칭 자세 / 기대앉기 / 졸음 데이터
 
-- 학습 Validation 예시
+![image](https://github.com/SpineTracker60/ai-model-server/assets/115389344/d783cf94-ff1d-432f-9d16-4277d075e99d)
 
-![image](https://github.com/MTVS-AI/META_Yolo_OCR_ChatGPT_PJT/assets/115389344/be2473b8-ab41-47ff-937a-f198db8de386)
+- 위 데이터를 기반으로 자세 교정에 도움이 될 수 있는 의자, 책상, 마우스 등의 사무 상품 추천 시스템
+- 본 프로젝트에서는 10000개의 Mock-Up 데이터를 직접 생성하여 적용하고 실제 서비스 사용에 따라 새 데이터 병합하는 것으로 계획
 
-- 모델 Predict 예시
-  
-![image](https://github.com/MTVS-AI/META_Yolo_OCR_ChatGPT_PJT/assets/115389344/c07b3085-0aa8-4e04-acd4-badfa018bec5)
-### ✔️ 현수막 Type 분류
+##### 2) 활용 Machine Learning 모델
 
-##### 1) 현수막 분류 알고리즘
-![image](https://github.com/MTVS-AI/META_Yolo_OCR_ChatGPT_PJT/assets/115389344/5deceae0-5fee-4849-b5f9-4ebb3f60664a)
+- LinearRegression(LR) / RandomForest(RF) / Singular Value Decomposition(SVD) / K-Nearest Neighbors (KNN) / XGBoostClassificier(XGBM)
+- 서비스 운영에 따라 최초 구성된 10000만개 데이터에 새로운 데이터 추가
+- 일주일/한달 단위 갱신된 새 데이터에 따라 적합한 ML 아키텍처가 상이
+- 이에 따라 갱신된 데이터별 최적의 정확도를 가진 모델 적용을 자동화시키기 위해 ML PipeLine을 구축
+- 
+![image](https://github.com/SpineTracker60/ai-model-server/assets/115389344/c5db3380-f838-4209-9162-274df7941a9f)
 
-##### 2) 객체 탐지 활용 지정게시대 현수막(합법 현수막) 구분
-- 입력된 이미지에 frame (지정게시대 틀) 존재 시, frame/banner의 xyxy 좌표 파악
-- banner/frame의 겹치는 비율 계산
-- 임계값 70% 이상 시 합법 현수막으로 분류
-
-![image](https://github.com/MTVS-AI/META_Yolo_OCR_ChatGPT_PJT/assets/115389344/1fd7e707-9c90-4631-a732-ba3c7f5c79c0)
-
-
-### ✔️ OCR
-##### 1) PaddleOCR
-
-- 경계가 뚜렷한 텍스트와 숫자 추출에 괜찮은 성능
-- 희미한 텍스트에 대해 색상 반전 등의 기법 시도
-- 그러나 다음단계로 넘어갔을 때 PaddleOCR로 추출한 텍스트만으로는 현수막 분류가 불가능하여 다른 OCR 활용
-
-![image](https://github.com/MTVS-AI/META_Yolo_OCR_ChatGPT_PJT/assets/115389344/ee6c41a3-e594-4fb1-99ab-462e0474b28b)
-
-
-##### 2) Naver Clova OCR
-
-- Naver Clova에서 API를 발급받아 요금을 내고 사용하는 고성능 OCR 모듈
-- PaddleOCR보다 기울어진 구도의 현수막과, Noise가 들어가있는 텍스트들을 더 효과적으로 추출 가능
-
-![image](https://github.com/MTVS-AI/META_Yolo_OCR_ChatGPT_PJT/assets/115389344/a4901a40-da1e-43dd-95a6-a033c3bf4e70)
-
-
-### ✔️ 텍스트 분류 (ChatGPT)
-
-- OCR을 통해 추출된 현수막의 텍스트 카테고리 분류 (프레임/합법/정치/기타 총 4개 클래스)
-- 프롬프트 엔지니어링 : 역할 부여 - 문제 정의 - 분류 클래스 묘사 - 전달 방식 정의 - 내용 전달 - 반환 방식 정의
-![image](https://github.com/MTVS-AI/META_Yolo_OCR_ChatGPT_PJT/assets/115389344/14d7daa7-9b1e-43ae-8f29-005dd65ea3cc)
-
-- Text Classification 예시 ( 프레임=0 , 합법=1 , 정치=2 , 기타=3 )
-![image](https://github.com/MTVS-AI/META_Yolo_OCR_ChatGPT_PJT/assets/115389344/6b36a710-95f0-4d29-9c3a-dbe093e42fb2)
-
-### ✔️ 데이터 정제 (DataFrame)
-
-- 데이터프레임 활용 데이터 정제 및 저장
-![image](https://github.com/MTVS-AI/META_Yolo_OCR_ChatGPT_PJT/assets/115389344/a30b63eb-bbfe-424f-81ec-d4efb596cb94)
-
-
-### ✔️ 웹서비스 기반 지도 시각화
-
-- 단속 업무에 활용할 수 있는 현수막 현황 자료
-
-![image](https://github.com/MTVS-AI/META_Yolo_OCR_ChatGPT_PJT/assets/115389344/a2c000f9-c6d9-4374-8332-98b706cf755e)
-
-![image](https://github.com/MTVS-AI/META_Yolo_OCR_ChatGPT_PJT/assets/115389344/0470d1c7-7fab-4aed-9499-ae8a7bd992f0)
-
-
-
-##### 1) 입력 정보
-- 정제된 DataFrame 바탕
-- 이미지 / 이미지의 종류
-- 내용 : crop된 이미지의 범례, 현수막의 내용, 해당 범례로 분류한 근거를 표의 형태로 포함
-
-##### 2) folium 모듈
-- leaflet.js를 기반으로 만들어진 Python 지도 시각화 라이브러리
-- 좌표값을 기반으로 popup 마커 생성, 해당 마커들은 범례에 따라 하나의 그룹으로 통합
-- popup에는 html 기반의 표 입력, base64 활용 인코딩 및 디코딩 후 표에 이미지 삽입
-- 최종적으로 지도에 popup 마커들이 표시되는 형태
-- 우측 상단의 박스 체크를 통해 합법 / 정치 / 불법 현수막들 중 원하는 종류의 현수막 현황을 볼 수 있는 조절 기능 구현
-
-### ✔️ 로그 수집/재학습
-
-##### 서비스 로그 기록/저장
-- 촬영 날짜/시간 , 원본 이미지, 예측 이미지, 클래스별 Crop 이미지 저장
-- 1) 수집 데이터 기반 재학습 용이
-- 2) 특정 기간 단위 데이터 분석 활용 가능 ex) 선거철
-  
-![image](https://github.com/MTVS-AI/META_Yolo_OCR_ChatGPT_PJT/assets/115389344/41d35ca5-7d10-459b-aaca-2fe5a72cda51)
+- 사용자 제품 추천 요청 시 해당 시점 최적화된 추천 모델이 추천함으로써 유저 만족도, 비즈니스 모델 고도화
 
 ### ✔️ 한계점 및 개선사항
 ##### 1) 기울어진 형태의 현수막 OCR
