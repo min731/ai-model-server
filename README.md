@@ -151,11 +151,19 @@
 
 ![image](https://github.com/SpineTracker60/ai-model-server/assets/115389344/190e96c8-8386-411f-b4e8-dc2dda6cbc33)
 
-##### 3) 챗봇 테스트 모듈 개발
+##### 3) 챗봇 테스트 모듈 개발 
 
+- 동일한 질문에 대한 다양한 표현방식(Utterance) 테스트를 위한 Gradio 기반 모듈 개발
+- 테스트 질문 답변 데이터를 저장하여 프롬프트 고도화에 활용
 
+![ezgif com-resize](https://github.com/SpineTracker60/ai-model-server/assets/115389344/22a44e95-4e53-48b7-92b6-32a1b3d71fd8)![image](https://github.com/SpineTracker60/ai-model-server/assets/115389344/85c3a03d-942b-4ca2-aef5-675d75d57bb4)
 
 ##### 4) 챗봇 구현 예시 및 통신
+
+- 시스템 안내와 개인화 상품 추천에 대한 예시입니다.
+  
+![ezgif com-resize (1)](https://github.com/SpineTracker60/ai-model-server/assets/115389344/b30e4dff-574c-4efc-853d-da24b1799ab4)![ezgif com-resize (4)](https://github.com/SpineTracker60/ai-model-server/assets/115389344/b75709b1-f208-4f82-bafe-946cd13f2033)
+
 
 ##### 2) yolov8(n) 모델 학습/평가 및 추론
 
