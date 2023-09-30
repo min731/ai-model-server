@@ -233,21 +233,18 @@
 ### ✔️ 시연 영상 / 블로그
 - Youtube : https://www.youtube.com/watch?v=UXZTP0jx1WQ&list=PLml1GH62sPF-tPUg7xatqjC3xG2bXmjgv&ab_channel=%EC%9E%84%EC%A0%95%EB%AF%BC
 - Velog : https://velog.io/@min0731/%EB%B6%88%EB%B2%95-%ED%98%84%EC%88%98%EB%A7%89-%ED%83%90%EC%A7%80-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B81
+  
 ### ✔️ 기사
 
-- https://www.youtube.com/watch?v=QtI7la0i_7A&ab_channel=%EC%B6%98%EC%B2%9CMBC%EB%89%B4%EC%8A%A4
-- https://www.munhwa.com/news/view.html?no=2022092001031039342001
-- https://www.joongang.co.kr/article/25170006#home
-- https://www.busan.com/view/busan/view.php?code=2023061418340018356
-- https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0002429221
-- https://www.greenkorea.org/activity/living-environment/zerowaste/91981/
+- https://www.hira.or.kr/bbsDummy.do?pgmid=HIRAA020041000100&brdScnBltNo=4&brdBltNo=9054
+- https://www.xn--989a170ahhpsgb.com/15/?q=YToyOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjtzOjQ6InBhZ2UiO2k6MTMzO30%3D&bmode=view&idx=13580562&t=board
 
 ### ✔️ 오픈소스 (GitHub)
 
-- https://github.com/ultralytics/ultralytics
-- https://www.ncloud.com/product/aiService/ocr
+- https://github.com/HW140701/VideoTo3dPoseAndBvh
+- https://github.com/facebookresearch/AnimatedDrawings
 
 ### ✔️ 라이브러리 공식 문서
 
-- https://docs.ultralytics.com/modes/predict/
-- https://pypi.org/project/paddleocr/
+- https://www.langchain.com/
+- https://openai.com/blog/gpt-3-5-turbo-fine-tuning-and-api-updates
