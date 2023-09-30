@@ -231,8 +231,8 @@
 # 🔍 참고 자료
 
 ### ✔️ 시연 영상 / 블로그
-- Youtube : https://www.youtube.com/watch?v=UXZTP0jx1WQ&list=PLml1GH62sPF-tPUg7xatqjC3xG2bXmjgv&ab_channel=%EC%9E%84%EC%A0%95%EB%AF%BC
-- Velog : https://velog.io/@min0731/%EB%B6%88%EB%B2%95-%ED%98%84%EC%88%98%EB%A7%89-%ED%83%90%EC%A7%80-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B81
+- Youtube : 준비중
+- Velog : 준비중
   
 ### ✔️ 기사
 
