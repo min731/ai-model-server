@@ -67,7 +67,7 @@
 - 23-09-16 : 중간발표 플로우 설계, Figma 활용 PPT/대본 작성
 - 23-09-18 : 팀별 중간발표 및 강사/멘토 피드백, 피드백 기반 팀 회의
 - 23-09-19 : Gradio 기반 챗봇 테스트 모듈 개발, 제품 추천 Mock-UP 데이터 구축, VideoTo3dPoseAndBvh 활용 모션 BVH 좌표 추출 모듈 개발(1)
-- 23-09-20 : ML PipeLine (LR/RF/SVD/KNC/GBM) 기반 추천 시스템 모듈 개발, 챗봇 프롬프트 수정 및 성능 고도화(1), , VideoTo3dPoseAndBvh 활용 모션 BVH 좌표 추출 모듈 개발(2)
+- 23-09-20 : ML PipeLine (LR/RF/SVD/KNC/GBM) 기반 추천 시스템 모듈 개발, 챗봇 프롬프트 수정 및 성능 고도화(1), VideoTo3dPoseAndBvh 활용 모션 BVH 좌표 추출 모듈 개발(2)
 - 23-09-21 : 제품 추천 시스템 챗봇 연동, 대표 캐릭터 초안 디자인
 - 23-09-22 : 2주차 기획/서버/AI 전공별 진행상황 보고 및 회의, 대표 캐릭터 애니메이션 적용 모듈 개발(1)
 - 23-09-25 : 유사 서비스 'Forest' 서비스 댓글 LDA 분석, 챗봇 프롬프트 수정 및 성능 고도화(2), 대표 캐릭터 애니메이션 적용 모듈 개발(2)
@@ -146,8 +146,8 @@
 - Persona Pattern : '척추의 요정'서비스의 친절한 챗봇이라는 역할/이름/성격 부여
 - Task : 유저들의 입력에 친절히 답변해주는 역할, 최우선적으로 사용자의 입력이 상품 추천인지/아닌지 의도를 분류하는 역할 명시
 - Examples : 사용자들이 입력할 수 있는 시스템 안내 /스트레칭 방법 /상품 추천 문답 예시 명시
-- Format : 20글자 이내의 간단한 답변 형식/길이 정의
-- Tone : 절친한 친구 말투 / 이모티콘 다수 사용 등 반환 형식 정의
+- Format : 20글자 이내의 간단한 답변 형식/길이 반환 형식 정의
+- Tone : 절친한 친구 말투 / 이모티콘 다수 사용 등 답변 스타일 명시
 
 ![image](https://github.com/SpineTracker60/ai-model-server/assets/115389344/190e96c8-8386-411f-b4e8-dc2dda6cbc33)
 
@@ -175,7 +175,7 @@
 ![image](https://github.com/SpineTracker60/ai-model-server/assets/115389344/d783cf94-ff1d-432f-9d16-4277d075e99d)
 
 - 위 데이터를 기반으로 자세 교정에 도움이 될 수 있는 의자, 책상, 마우스 등의 사무 상품 추천 시스템
-- 본 프로젝트에서는 10000개의 Mock-Up 데이터를 직접 생성하여 적용하고 실제 서비스 사용에 따라 새 데이터 병합하는 것으로 계획
+- 본 프로젝트에서는 10000개의 Mock-Up 데이터를 직접 생성하여 적용하고 실제 서비스 사용에 따라 발생하는 새 데이터 병합하는 것으로 계획
 
 ##### 2) 활용 Machine Learning 모델
 
@@ -183,10 +183,10 @@
 - 서비스 운영에 따라 최초 구성된 10000만개 데이터에 새로운 데이터 추가
 - 일주일/한달 단위 갱신된 새 데이터에 따라 적합한 ML 아키텍처가 상이
 - 이에 따라 갱신된 데이터별 최적의 정확도를 가진 모델 적용을 자동화시키기 위해 ML PipeLine을 구축
-- 
+  
 ![image](https://github.com/SpineTracker60/ai-model-server/assets/115389344/c5db3380-f838-4209-9162-274df7941a9f)
 
-- 사용자 제품 추천 요청 시 해당 시점 최적화된 추천 모델이 추천함으로써 유저 만족도, 비즈니스 모델 고도화
+- 개인에 적합한 최적화 추천을 통해 유저 만족도를 향상시키고 비즈니스 모델 고도화를 도모
   
 ### ✔️ 대표 캐릭터 '레톤이' 애니메이션 적용
 
@@ -220,13 +220,13 @@
 <img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white">
 
 ### 🔹 주요 라이브러리
-<img src="https://img.shields.io/badge/ultralystics-0099E5?style=for-the-badge&logo=ultralystics&logoColor=white"> <img src="https://img.shields.io/badge/pytorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white"> <img src="https://img.shields.io/badge/torchvision-29A7DF?style=for-the-badge&logo=torchvision&logoColor=white"> <img src="https://img.shields.io/badge/paddleocr-0062B0?style=for-the-badge&logo=paddleocr&logoColor=white"> <img src="https://img.shields.io/badge/openai-412991?style=for-the-badge&logo=openai&logoColor=white"> <img src="https://img.shields.io/badge/folium-77B829?style=for-the-badge&logo=folium&logoColor=white"> <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=white"> <img src="https://img.shields.io/badge/jquery-FF4154?style=for-the-badge&logo=jquery&logoColor=white"> <img src="https://img.shields.io/badge/flask-000000?style=for-the-badge&logo=flask&logoColor=white"> <img src="https://img.shields.io/badge/jinja2-B41717?style=for-the-badge&logo=jinja&logoColor=white"> <img src="https://img.shields.io/badge/opencv-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white"> <img src="https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"> <img src="https://img.shields.io/badge/matplotlib-0058CC?style=for-the-badge&logo=matplotlib&logoColor=white">
+<img src="https://img.shields.io/badge/mediapipe-23C8D2?style=for-the-badge&logo=mediapipe&logoColor=white"> <img src="https://img.shields.io/badge/openai-412991?style=for-the-badge&logo=openai&logoColor=white">  <img src="https://img.shields.io/badge/langchain-EC1C24?style=for-the-badge&logo=langchain&logoColor=white"> <img src="https://img.shields.io/badge/konlpy-2C5BB4?style=for-the-badge&logo=konlpy&logoColor=white"> <img src="https://img.shields.io/badge/scikit learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white"> <img src="https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"> <img src="https://img.shields.io/badge/VideoTo3dPoseAndBVH-A5915F?style=for-the-badge&logo=VideoTo3dPoseAndBVH&logoColor=white"> <img src="https://img.shields.io/badge/Animated Drawings-0467DF?style=for-the-badge&logo=META&logoColor=white"> <img src="https://img.shields.io/badge/flask-000000?style=for-the-badge&logo=flask&logoColor=white"> <img src="https://img.shields.io/badge/gradio-F08705?style=for-the-badge&logo=gradio&logoColor=white">
 
 ### 🔹 개발 툴
 <img src="https://img.shields.io/badge/VS code-2F80ED?style=for-the-badge&logo=VS code&logoColor=white"> <img src="https://img.shields.io/badge/Google Colab-F9AB00?style=for-the-badge&logo=Google Colab&logoColor=white"> <img src="https://img.shields.io/badge/pycharm-000000?style=for-the-badge&logo=pycharm&logoColor=white">
 
 ### 🔹 협업 툴
-<img src="https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=Github&logoColor=white"> <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white"> <img src="https://img.shields.io/badge/roboflow-A100FF?style=for-the-badge&logo=roboflow&logoColor=white">
+<img src="https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=Github&logoColor=white"> <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white"> <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=Figma&logoColor=white"> 
 
 # 🔍 참고 자료
 
