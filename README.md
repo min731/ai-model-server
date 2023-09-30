@@ -241,6 +241,7 @@
 
 ### ✔️ 오픈소스 (GitHub)
 
+- https://github.com/pinecone-io/examples/blob/master/learn/generation/openai/fine-tuning/gpt-3.5-agent-training/00-fine-tuning.ipynb
 - https://github.com/HW140701/VideoTo3dPoseAndBvh
 - https://github.com/facebookresearch/AnimatedDrawings
 
