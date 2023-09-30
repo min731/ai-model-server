@@ -3,6 +3,9 @@
 ### ✔️ 데스크 워커를 위한 자세 교정 서비스 '척추의 요정'
 (메타버스 아카데미 2기 9월 월말평가 기획/서버/AI 융합 팀 프로젝트)
 
+![image](https://github.com/SpineTracker60/ai-model-server/assets/115389344/441f3cae-4e9d-4d65-b4cf-372d7ee86a45)
+
+
 # 📃 프로젝트 소개
 
 ### ✔️ MediaPipe (자세 감지), ChatGPT API (챗봇), Recommendation System (자세 교정 제품 추천), LDA (댓글 분석), Animated Drawings(대표 캐릭터)를 활용한 자세 교정 서비스 '척추의 요정' 프로젝트입니다.
