@@ -55,7 +55,7 @@
 
 ### ✔️ AI 세부 진행 기록
 
-[세부 일정 GitHub Projects](https://github.com/orgs/SpineTracker60/projects/8/views/2)
+[세부 일정 GitHub Projects(Start/End)](https://github.com/orgs/SpineTracker60/projects/8/views/2)
 
 - 23-09-04 ~ 23-09-06 : 기획/서버/AI 전공별 자기소개 및 팀빌딩
 - 23-09-07 ~ 23-09-08 : 아이디어 기획 및 주제 브레인스토밍/토의
