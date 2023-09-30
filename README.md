@@ -3,8 +3,7 @@
 ### ✔️ 데스크 워커를 위한 자세 교정 서비스 '척추의 요정'
 (메타버스 아카데미 2기 9월 월말평가 기획/서버/AI 융합 팀 프로젝트)
 
-![image](https://github.com/SpineTracker60/ai-model-server/assets/115389344/ade76a71-7137-4cb8-8ecc-c28a827eba98)
-
+![image](https://github.com/SpineTracker60/ai-model-server/assets/115389344/ece2c6da-dbea-45b5-8363-56faaa4c66de)
 
 # 📃 프로젝트 소개
 
