@@ -234,8 +234,8 @@
 # 🔍 참고 자료
 
 ### ✔️ 시연 영상 / 블로그
-- Youtube : 준비중
-- Velog : 준비중
+- 시연 영상 : https://velog.io/@min0731/%EB%8D%B0%EC%8A%A4%ED%81%AC-%EC%9B%8C%EC%BB%A4%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%9E%90%EC%84%B8-%EA%B5%90%EC%A0%95-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%B2%99%EC%B6%94%EC%9D%98-%EC%9A%94%EC%A0%95-3
+- Velog : https://velog.io/@min0731/%EB%8D%B0%EC%8A%A4%ED%81%AC-%EC%9B%8C%EC%BB%A4%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%9E%90%EC%84%B8-%EA%B5%90%EC%A0%95-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%B2%99%EC%B6%94%EC%9D%98-%EC%9A%94%EC%A0%95-1
   
 ### ✔️ 기사
 
