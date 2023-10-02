@@ -132,7 +132,7 @@
 ### ✔️ ChatGPT API + LangChain 활용 '레톤이' 챗봇
 
 - GPT 3.5 Turbo 모델 활용
--  LangChain 모델 중 대화에 특화된 ChatOpenAI(LMM 모델)활용
+-  LangChain 모델 중 대화에 특화된 ChatOpenAI(LLM 모델)활용
 - ChatPromptTemplate(프롬프트 템플릿) 활용
 - 최소 두어절 ~ 세어절 등 적은 입력 단위에 기반하여 전체 대화 내역을 기억하는 ConversationBufferMemory 활용
 
