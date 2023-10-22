@@ -167,7 +167,7 @@
 ![ezgif com-resize (1)](https://github.com/SpineTracker60/ai-model-server/assets/115389344/b30e4dff-574c-4efc-853d-da24b1799ab4)![ezgif com-resize (4)](https://github.com/SpineTracker60/ai-model-server/assets/115389344/b75709b1-f208-4f82-bafe-946cd13f2033)
 
 
-### ✔️ ML PipLine을 활용한 개인화 상품 추천 시스템
+### ✔️ ML PipeLine을 활용한 개인화 상품 추천 시스템
 
 ##### 1) 개요
 
